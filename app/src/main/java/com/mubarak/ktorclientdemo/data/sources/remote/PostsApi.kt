@@ -10,20 +10,4 @@ import io.ktor.serialization.kotlinx.json.json
 
 interface PostsApi {
     suspend fun getPosts(): List<Posts>
-
-    companion object{
-        fun create(): PostsApi {
-            return PostApiImpl(
-                HttpClient(Android){
-                    install(ContentNegotiation){
-                        json()
-                    }
-                    install(Logging){
-                        level = LogLevel.ALL
-                    }
-
-                }
-            )
-        }
-    }
 }
