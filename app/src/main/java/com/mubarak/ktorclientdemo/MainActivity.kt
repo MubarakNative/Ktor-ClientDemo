@@ -51,9 +51,9 @@ fun App(modifier: Modifier = Modifier,service: PostsApi) {
             Column(
                 modifier = Modifier.padding(horizontal = 16.dp)
             ) {
-                Text(text = it.title, style = MaterialTheme.typography.titleMedium)
+                Text(text = it.title, style = MaterialTheme.typography.bodyMedium)
                 Spacer(modifier = Modifier.height(12.dp))
-                Text(text = it.body, style = MaterialTheme.typography.bodyMedium)
+                Text(text = it.body, style = MaterialTheme.typography.titleMedium)
             }
         }
     }
