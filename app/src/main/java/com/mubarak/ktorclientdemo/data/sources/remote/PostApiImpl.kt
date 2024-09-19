@@ -8,17 +8,15 @@ import io.ktor.http.URLProtocol
 import io.ktor.http.path
 
 class PostApiImpl(
-    private val client: HttpClient
+    private val client: HttpClient // helps to make http request and handle responses
 ) : PostsApi {
     override suspend fun getPosts(): List<Posts> {
-         return client.use { // for single request use 'use' it automatically calls close
-                it.get{
+           return client.get {
                     url {
                         protocol = URLProtocol.HTTPS
                         host = "jsonplaceholder.typicode.com"
                         path("/posts")
                     }
-                }
-            }.body()
+        }.body()
     }
 }
